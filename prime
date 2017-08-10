@@ -1,0 +1,42 @@
+/**
+ * Created by LongFeng on 2017/8/8.
+ */
+//将小于数字a的所有质数找出来存放在数组里
+function primeNum(a){
+    var prime=[];
+    var flag=false;
+    for(var i=2;i<=a;i++){
+        for(var j=2;j<=i;j++){
+            if(i%j==0){
+                break;
+            }
+        }
+        if(i<=j&&i!=1){
+            prime.push(i);
+        }
+    }
+    return prime;
+}
+//分解质因数
+function breakNum(b){
+    var result=[];//存放质因数
+    var arr=primeNum(b);//找到小于等于待分解数的所有质数
+    for(var k=0;k<arr.length;k++){
+        if(b==arr[i]){
+            console.log('待分解数为质数，不能分解质因数');
+            break;
+        }
+    }
+    for(var i=0;i<arr.length;i++){
+        while(b%arr[i]==0){//分解质因数并输出
+            b/=arr[i];
+            result.push(arr[i]);
+        }
+        if(b==0){
+            break;
+        }
+    }
+    console.log(result);
+}
+//调用分解质因数的函数
+breakNum(90);
