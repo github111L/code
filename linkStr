@@ -1,0 +1,29 @@
+/**
+ * Created by LongFeng on 2017/8/11.
+ */
+//删除字符串中特定元素并输出新的字符串
+function deleteTheValue(str,val){
+    var str1=str.split("->");//分割字符串
+    var str2="";//定义保存最终结果git的字符串
+    var arr=[];//定义保存删除指定元素后的新字符串，进一步处理为指定格式输出
+    //删除指定元素
+    for(var i=0;i<str1.length;i++) {
+        if (str1[i].charAt(0) == val) {
+            continue;
+        }
+        arr.push(str1[i].charAt(0));
+    }
+    //进一步处理为指定格式
+    for(var i=0;i<arr.length;i++) {
+        if(i==arr.length-1){
+            str2+=(arr[i]);
+            break;
+        }
+        str2+=(arr[i]+"->");
+    }
+    //输出结果
+    console.log(str2);
+}
+//调用函数
+str="1->2->3->4->5->3";
+deleteTheValue(str,3);
