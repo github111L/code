@@ -1,0 +1,38 @@
+/**
+ * Created by LongFeng on 2017/8/13.
+ *
+ * 给定一个未排序的整数数组，找到其中位数。
+ * function XXX(arr){}
+ */
+//sort array
+function insertSort(array){
+    /*start根据已排列好的项数决定*/
+    var start=1;
+    /*按顺序，每一项检查已排列好的序列*/
+    for(var i=start; i<array.length; start++,i++){
+        /*跟已排好序的序列做对比，并插入到合适的位置*/
+        for(var j=0; j<start; j++){
+            /*小于或者等于时（我们是升序）插入到该项前面*/
+            if(array[i]<=array[j]){
+                array.splice(j,0,array[i]);
+                /*删除原有项*/
+                array.splice(i+1,1);
+                break;
+            }
+        }
+    }
+    return array;
+}
+function middleNumber(arr1){
+    var arr =insertSort(arr1);
+    var res;
+    if(arr.length%2==0){
+
+        res=(arr[arr.length/2-1]+arr[arr.length])/2;
+    }
+    else{
+        res=arr[(arr.length-1)/2];
+    }
+    return res;
+}
+console.log("中位数:"+middleNumber([1,2,3,4,5,6,67,7,5,4,3]));
