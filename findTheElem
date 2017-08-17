@@ -1,0 +1,20 @@
+/***************************************************************************
+ * 体能训练题目：题目：找出数组 arr 中重复出现过的元素
+ 例如：arr = [‘a’, ‘ab’, ‘ed’, ‘da’, ‘a’, ‘ed’, ‘b’];输出：‘a’, ‘ed’
+ * *************************************************************************/
+function findTheElem(arr){
+    var result=new Array();
+    arr.forEach((elem)=> {
+        if (arr.filter((item)=> {
+                return elem == item
+            }).length > 1) {
+            if ( result.every((theRepeatedElem)=> {
+                    return theRepeatedElem != elem;
+                }) ) {
+                result.push(elem);
+            }
+        }
+    });
+    console.log(result);
+    return result;
+}
